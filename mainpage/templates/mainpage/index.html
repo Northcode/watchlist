@@ -1,0 +1,20 @@
+{% extends 'mainpage/layout/main.html' %}
+{% load staticfiles %}
+
+{% block content %}
+
+<h1>Hello, world!</h1>
+
+<section id="lists">
+    <table>
+	<th>List name</th><th>By user</th>
+	{% for list in mainpage_watchlists %}
+	<tr>
+	    <td>{{ list.title }}</td>
+	    <td>{{ list.user.username }}</td>
+	</tr>
+	{% endfor %}
+    </table>
+</section>
+
+{% endblock %}

@@ -1,0 +1,19 @@
+{% extends 'mainpage/layout/main.html' %}
+
+{% block content %}
+
+<h3>{{ list.title }}</h3>
+
+<section id="watchlist_table">
+    <table>
+	<th>Series</th><th>Seen?</th>
+	{% for entry in watchlist %}
+	<tr>
+	    <td>{{ entry.title }}</td>
+	    <td>{{ entry.seen|yesno }}</td>
+	</tr>
+	{% endfor %}
+    </table>
+</section>
+
+{% endblock %}

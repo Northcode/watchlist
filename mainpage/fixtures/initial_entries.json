@@ -1,0 +1,47 @@
+[
+    {
+	"model": "mainpage.ListEntry",
+	"fields": {
+	    "title": "Dag",
+	    "watchlist": 1,
+	    "seen": true,
+	    "isfavourite": false
+	}
+    },
+    {
+	"model": "mainpage.ListEntry",
+	"fields": {
+	    "title": "Mr. Robot",
+	    "watchlist": 1,
+	    "seen": true,
+	    "isfavourite": false
+	}
+    },
+    {
+	"model": "mainpage.ListEntry",
+	"fields": {
+	    "title": "House of Cards",
+	    "watchlist": 1,
+	    "seen": true,
+	    "isfavourite": false
+	}
+    },
+    {
+	"model": "mainpage.ListEntry",
+	"fields": {
+	    "title": "Skam",
+	    "watchlist": 1,
+	    "seen": false,
+	    "isfavourite": false
+	}
+    },
+    {
+	"model": "mainpage.ListEntry",
+	"fields": {
+	    "title": "Fargo",
+	    "watchlist": 1,
+	    "seen": true,
+	    "isfavourite": false
+	}
+    }
+]

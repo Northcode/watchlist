@@ -1,0 +1,24 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+
+<html>
+    <head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+	<meta name="author" content="Northcode"/>
+	<meta name="description" content="Watchlist page for keeping track of stuff you've seen or are gonna see."/>
+
+	<title>{% block title %}Northcode Watchlist{% endblock %}</title>
+
+	<link rel="stylesheet" href="{% static 'mainpage/css/main.css' %}" />
+    </head>
+
+    <body>
+	<section id="wrapper">
+            {% block content %}
+	    
+	    {% endblock %}
+	</section>
+    </body>
+</html>
