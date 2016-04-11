@@ -1,0 +1,4 @@
+/env/bin/__pycache__/django-admin.cpython-35.pyc
+*env/
+/db.sqlite3
+*__pycache__*
