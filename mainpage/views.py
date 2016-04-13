@@ -43,11 +43,22 @@ def newentry(request, list_id):
     if request.method == "POST":
         formdata = EntryForm(request.POST)
         if formdata.is_valid():
-            listentry = formdata.save()
-            listentry.watchlist = list_id
+            listentry = formdata.save(commit=False)
+            listentry.watchlist = WatchList(list_id)
             listentry.save()
-            return redirect('viewlist', list_id=listentry.watchlist)
+            return redirect('viewlist', list_id=listentry.watchlist.pk)
     else:
         form = EntryForm()
         return render(request, 'mainpage/newentry.html', {'form': form, 'list_id': list_id})
     
+def deleteentry(request, list_id, entry_id):
+    entries = ListEntry.objects.filter(pk=entry_id, watchlist=list_id)
+    for entry in entries:
+        entry.delete()
+    return redirect('viewlist',list_id)
+
+def deletelist(request, list_id):
+    entries = WatchList.objects.filter(pk=list_id)
+    for entry in entries:
+        entry.delete()
+    return redirect('index')

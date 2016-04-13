@@ -3,20 +3,20 @@
 
 {% block content %}
 
-<h1>Hello, world!</h1>
-
 <section id="lists">
     <table>
-	<th>List name</th><th>By user</th>
+	<th>List name</th><th>By user</th><th></th>
 	{% for list in mainpage_watchlists %}
 	<tr>
 	    <td><a href="{% url 'viewlist' list.pk %}">{{ list.title }}</a></td>
 	    <td>{{ list.user.username }}</td>
+	    <td><a href="{% url 'deletelist' list.id %}">Delete</a></td>
 	</tr>
 	{% endfor %}
 	<tr>
 	    <td></td>
 	    <td><a href="{% url 'newlist' %}">Add new</a></td>
+	    <td></td>
 	</tr>
     </table>
 </section>

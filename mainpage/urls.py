@@ -19,7 +19,9 @@ from . import views
 
 urlpatterns = [
     url(r'^list/(?P<list_id>[0-9]+)/$', views.ListViewPage.as_view(), name="viewlist"),
-    url(r"^new/list$", views.newlist, name="newlist"),
-    url(r"^new/entry/(?P<list_id>[0-9]+)/$", views.newentry, name="newentry"),
-    url(r'^$', views.IndexPage.as_view()),
+    url(r"^list/new$", views.newlist, name="newlist"),
+    url(r"^list/(?P<list_id>[0-9]+)/new$", views.newentry, name="newentry"),
+    url(r"^list/(?P<list_id>[0-9]+)/(?P<entry_id>[0-9]+)/delete", views.deleteentry, name="deleteentry"),
+    url(r"^list/(?P<list_id>[0-9]+)/delete", views.deletelist, name="deletelist"),
+    url(r'^$', views.IndexPage.as_view(), name="index"),
 ]
