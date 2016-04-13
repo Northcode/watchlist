@@ -13,6 +13,9 @@
 	    <td>{{ entry.seen|yesno }}</td>
 	</tr>
 	{% endfor %}
+	<tr>
+	    <th></th>
+	    <td><a href="{% url 'newentry' list.pk %}">Add entry</a></td>
     </table>
 </section>
 

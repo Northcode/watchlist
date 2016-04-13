@@ -1,8 +1,8 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
 from django.views.generic.list import ListView
 
 from .models import WatchList,ListEntry
-from .forms import WatchListForm
+from .forms import WatchListForm,EntryForm
 
 # Create your views here.
 class IndexPage(ListView):
@@ -29,5 +29,25 @@ class ListViewPage(ListView):
 
 
 def newlist(request):
-    form = WatchListForm()
-    return render(request, 'mainpage/newlist.html', {'form': form})
+    if request.method == "POST":
+        formdata = WatchListForm(request.POST)
+        if formdata.is_valid():
+            watchlist = formdata.save(commit=False)
+            watchlist.save()
+            return redirect('viewlist', list_id=watchlist.pk)
+    else:
+        form = WatchListForm()
+        return render(request, 'mainpage/newlist.html', {'form': form})
+
+def newentry(request, list_id):
+    if request.method == "POST":
+        formdata = EntryForm(request.POST)
+        if formdata.is_valid():
+            listentry = formdata.save()
+            listentry.watchlist = list_id
+            listentry.save()
+            return redirect('viewlist', list_id=listentry.watchlist)
+    else:
+        form = EntryForm()
+        return render(request, 'mainpage/newentry.html', {'form': form, 'list_id': list_id})
+    

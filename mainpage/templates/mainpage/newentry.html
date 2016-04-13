@@ -1,0 +1,21 @@
+{% extends 'mainpage/layout/main.html' %}
+
+{% block content %}
+
+<h3>New entry</h3>
+
+<form method="post">
+    <table>
+	{% csrf_token %}
+	{{ form.as_table }}
+	<tr>
+	    <th><input type="hidden" name="watchlist_id" value="{{ list_id }}" /></th>
+	    <td>
+		<input type="submit" value="Add" />
+	    </td>
+	</tr>
+    </table>
+</form>
+
+
+{% endblock %}
