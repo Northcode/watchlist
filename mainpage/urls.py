@@ -18,6 +18,7 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^list/(?P<list_id>[0-9]+)/$', views.ListViewPage.as_view()),
+    url(r'^list/(?P<list_id>[0-9]+)/$', views.ListViewPage.as_view(), name="viewlist"),
+    url(r"^new/list$", views.newlist, name="newlist"),
     url(r'^$', views.IndexPage.as_view()),
 ]

@@ -10,10 +10,14 @@
 	<th>List name</th><th>By user</th>
 	{% for list in mainpage_watchlists %}
 	<tr>
-	    <td>{{ list.title }}</td>
+	    <td><a href="{% url 'viewlist' list.pk %}">{{ list.title }}</a></td>
 	    <td>{{ list.user.username }}</td>
 	</tr>
 	{% endfor %}
+	<tr>
+	    <td></td>
+	    <td><a href="{% url 'newlist' %}">Add new</a></td>
+	</tr>
     </table>
 </section>
 

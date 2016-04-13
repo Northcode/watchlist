@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.views.generic.list import ListView
 
 from .models import WatchList,ListEntry
+from .forms import WatchListForm
 
 # Create your views here.
 class IndexPage(ListView):
@@ -25,3 +26,8 @@ class ListViewPage(ListView):
         print("List id: " + self.kwargs['list_id'])
         context['list'] = WatchList.objects.get(pk=self.kwargs['list_id'])
         return context
+
+
+def newlist(request):
+    form = WatchListForm()
+    return render(request, 'mainpage/newlist.html', {'form': form})
